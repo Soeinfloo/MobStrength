@@ -2,3 +2,12 @@ name: MobStrength
 version: '${project.version}'
 main: org.soeinflooo.mobstrength.main.Main
 api-version: 1.19
+description: This Plugin Controlls the Damage of Entities
+author: Soeinflooo
+prefix: MobStrength
+
+commands:
+  ms:
+    description: Gut diese
+    aliases: mobstrength
+    permission-message: Sorry this is an Server Administrator thing.

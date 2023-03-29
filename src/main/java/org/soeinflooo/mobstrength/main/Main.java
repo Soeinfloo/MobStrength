@@ -3,6 +3,8 @@ package org.soeinflooo.mobstrength.main;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.soeinflooo.mobstrength.commands.MobStrength;
+import org.soeinflooo.mobstrength.commands.MobStrengthCompleter;
 import org.soeinflooo.mobstrength.listener.getPlayerLocale;
 import org.soeinflooo.mobstrength.listener.onPlayerJoin;
 //import org.soeinflooo.mobstrength.utils.Config;
@@ -43,7 +45,8 @@ public final class Main extends JavaPlugin {
     }
 
     private void addCommands() {
-        //getCommand("sbb").setExecutor(new soulbindbook());
+        getCommand("ms").setExecutor(new MobStrength());
+        getCommand("ms").setTabCompleter(new MobStrengthCompleter());
 
     }
     public static Main getPlugin() {return plugin;}
