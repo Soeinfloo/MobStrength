@@ -27,6 +27,7 @@ public class onPlayerJoin implements Listener {
                 String locale = player.locale().toString();
                 player.sendMessage("It seems like you are the first Serveradmin joining this Server!\nPlease Setup this Plugin!");
                 config.set("Setup", "false");
+                Main.getPlugin().saveConfig();
 
 
             }

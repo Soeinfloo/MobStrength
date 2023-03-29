@@ -14,7 +14,7 @@ public final class Main extends JavaPlugin {
     //private Config config;
     @Override
     public void onLoad() {
-        plugin = this;
+        //plugin = this;
         //config = new Config();
         Bukkit.getLogger().info("MobStrength Up Players Down!");
     }
@@ -38,7 +38,6 @@ public final class Main extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new onPlayerJoin(), Main.getPlugin());
         pluginManager.registerEvents(new getPlayerLocale(), Main.getPlugin());
-        pluginManager.registerEvents(new onPlayerJoin(), Main.getPlugin());
 
 
     }
