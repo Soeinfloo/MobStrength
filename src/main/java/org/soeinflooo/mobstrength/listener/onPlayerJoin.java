@@ -20,64 +20,156 @@ public class onPlayerJoin implements Listener {
         Player player = e.getPlayer();
         FileConfiguration config = Main.getPlugin().getConfig();
 
-        if(player.isOp()){
-            if(config.get("Setup") == "true"){
+        if(config.get("Setup") == "true"){
 
-            }else{
-                String locale = player.locale().toString();
-                player.sendMessage("It seems like you are the first Serveradmin joining this Server!\nPlease Setup this Plugin!");
-                config.addDefault("Setup","false");
-                config.addDefault("Bee", "1");
-                config.addDefault("Blaze", "1");
-                config.addDefault("Cave_Spider", "1");
-                config.addDefault("Chicken_Jockey", "1");
-                config.addDefault("Creeper", "1");
-                config.addDefault("Dolphin", "1");
-                config.addDefault("Drowned", "1");
-                config.addDefault("Elder_Guardian", "1");
-                config.addDefault("Ender_Dragon", "1");
-                config.addDefault("Enderman", "1");
-                config.addDefault("Endermite", "1");
-                config.addDefault("Evoker", "1");
-                config.addDefault("Ghast", "1");
-                config.addDefault("Goat", "1");
-                config.addDefault("Guardian", "1");
-                config.addDefault("Hoglin", "1");
-                config.addDefault("Husk", "1");
-                config.addDefault("Iron_Golem", "1");
-                config.addDefault("Llama", "1");
-                config.addDefault("Magma_Cube", "1");
-                config.addDefault("Panda", "1");
-                config.addDefault("Phantom", "1");
-                config.addDefault("Piglin", "1");
-                config.addDefault("Piglin_Brute", "1");
-                config.addDefault("Pillager", "1");
-                config.addDefault("Polar_Bear", "1");
-                config.addDefault("Ravager", "1");
-                config.addDefault("Shulker", "1");
-                config.addDefault("Silverfish", "1");
-                config.addDefault("Skeleton", "1");
-                config.addDefault("Skeleton_Horseman", "1");
-                config.addDefault("Slime", "1");
-                config.addDefault("Spider", "1");
-                config.addDefault("Spider_Jockey", "1");
-                config.addDefault("Stray", "1");
-                config.addDefault("Trader_Llama", "1");
-                config.addDefault("Vex", "1");
-                config.addDefault("Vindicator", "1");
-                config.addDefault("Warden", "1");
-                config.addDefault("Witch", "1");
-                config.addDefault("Wither", "1");
-                config.addDefault("Wolf", "1");
-                config.addDefault("Zoglin", "1");
-                config.addDefault("Zombie", "1");
-                config.addDefault("Zombie_Villager", "1");
-                config.addDefault("Zombified_Piglin", "1");
-                config.setDefaults(config);
-                Main.getPlugin().saveConfig();
+        }else{
+            config.addDefault("Setup","false");
+
+            config.addDefault("Overall","");
+            config.addDefault("Overall" +".Modifier:", 1);
+
+            config.addDefault("Bee", "");
+            config.addDefault("Bee" + ".Modifier:", 1);
+
+            config.addDefault("Blaze", "");
+            config.addDefault("Blaze" + ".Modifier:", 1);
+
+            config.addDefault("Cave_Spider", "");
+            config.addDefault("Cave_Spider" + ".Modifier:", 1);
+
+            config.addDefault("Chicken_Jockey", "");
+            config.addDefault("Chicken_Jockey" + ".Modifier:", 1);
+
+            config.addDefault("Creeper", "");
+            config.addDefault("Creeper" + ".Modifier:", 1);
+
+            config.addDefault("Dolphin", "");
+            config.addDefault("Dolphin" + ".Modifier:", 1);
+
+            config.addDefault("Drowned", "");
+            config.addDefault("Drowned" + ".Modifier:", 1);
+
+            config.addDefault("Elder_Guardian", "");
+            config.addDefault("Elder_Guardian" + ".Modifier:", 1);
+
+            config.addDefault("Ender_Dragon", "");
+            config.addDefault("Ender_Dragon" + ".Modifier:", 1);
+
+            config.addDefault("Enderman", "");
+            config.addDefault("Enderman" + ".Modifier:", 1);
+
+            config.addDefault("Endermite", "");
+            config.addDefault("Endermite" + ".Modifier:", 1);
+
+            config.addDefault("Evoker", "");
+            config.addDefault("Evoker" + ".Modifier:", 1);
+
+            config.addDefault("Ghast", "");
+            config.addDefault("Ghast" + ".Modifier:", 1);
+
+            config.addDefault("Goat", "");
+            config.addDefault("Goat" + ".Modifier:", 1);
+
+            config.addDefault("Guardian", "");
+            config.addDefault("Guardian" + ".Modifier:", 1);
+
+            config.addDefault("Hoglin", "");
+            config.addDefault("Hoglin" + ".Modifier:", 1);
+
+            config.addDefault("Husk", "");
+            config.addDefault("Husk" + ".Modifier:", 1);
+
+            config.addDefault("Iron_Golem", "");
+            config.addDefault("Iron_Golem" + ".Modifier:", 1);
+
+            config.addDefault("Llama", "");
+            config.addDefault("Llama" + ".Modifier:", 1);
+
+            config.addDefault("Magma_Cube", "");
+            config.addDefault("Magma_Cube" + ".Modifier:", 1);
+
+            config.addDefault("Panda", "");
+            config.addDefault("Panda" + ".Modifier:", 1);
+
+            config.addDefault("Phantom", "");
+            config.addDefault("Phantom" + ".Modifier:", 1);
+
+            config.addDefault("Piglin", "");
+            config.addDefault("Piglin" + ".Modifier:", 1);
+
+            config.addDefault("Piglin_Brute", "");
+            config.addDefault("Piglin_Brute" + ".Modifier:", 1);
+
+            config.addDefault("Pillager", "");
+            config.addDefault("Pillager" + ".Modifier:", 1);
+
+            config.addDefault("Polar_Bear", "");
+            config.addDefault("Polar_Bear" + ".Modifier:", 1);
+
+            config.addDefault("Ravager", "");
+            config.addDefault("Ravager" + ".Modifier:", 1);
+
+            config.addDefault("Shulker", "");
+            config.addDefault("Shulker" + ".Modifier:", 1);
+
+            config.addDefault("Silverfish", "");
+            config.addDefault("Silverfish" + ".Modifier:", 1);
+
+            config.addDefault("Skeleton", "");
+            config.addDefault("Skeleton" + ".Modifier:", 1);
+
+            config.addDefault("Skeleton_Horseman", "");
+            config.addDefault("Skeleton_Horseman" + ".Modifier:", 1);
+
+            config.addDefault("Slime", "");
+            config.addDefault("Slime" + ".Modifier:", 1);
+
+            config.addDefault("Spider", "");
+            config.addDefault("Spider" + ".Modifier:", 1);
+
+            config.addDefault("Spider_Jockey", "");
+            config.addDefault("Spider_Jockey" + ".Modifier:", 1);
+
+            config.addDefault("Stray", "");
+            config.addDefault("Stray" + ".Modifier:", 1);
+
+            config.addDefault("Trader_Llama", "");
+            config.addDefault("Trader_Llama" + ".Modifier:", 1);
+
+            config.addDefault("Vex", "");
+            config.addDefault("Vex" + ".Modifier:", 1);
+
+            config.addDefault("Vindicator", "");
+            config.addDefault("Vindicator" + ".Modifier:", 1);
+
+            config.addDefault("Warden", "");
+            config.addDefault("Warden" + ".Modifier:", 1);
+
+            config.addDefault("Witch", "");
+            config.addDefault("Witch" + ".Modifier:", 1);
+
+            config.addDefault("Wither", "");
+            config.addDefault("Wither" + ".Modifier:", 1);
+
+            config.addDefault("Wolf", "");
+            config.addDefault("Wolf" + ".Modifier:", 1);
+
+            config.addDefault("Zoglin", "");
+            config.addDefault("Zoglin" + ".Modifier:", 1);
+
+            config.addDefault("Zombie", "");
+            config.addDefault("Zombie" + ".Modifier:", 1);
+
+            config.addDefault("Zombie_Villager", "");
+            config.addDefault("Zombie_Villager" + ".Modifier:", 1);
+
+            config.addDefault("Zombified_Piglin", "");
+            config.addDefault("Zombified_Piglin" + ".Modifier:", 1);
 
 
-            }
+            config.options().copyDefaults(true);
+            Main.getPlugin().saveConfig();
+
         }
         if(!(player.hasPlayedBefore())) {
             File pFile = new File(Main.getPlugin().getDataFolder().getPath() + "/Players" + File.separator + player.getUniqueId() + ".yml");
