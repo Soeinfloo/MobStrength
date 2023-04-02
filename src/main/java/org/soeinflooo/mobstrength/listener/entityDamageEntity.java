@@ -27,7 +27,7 @@ public class entityDamageEntity implements Listener {
                 String enemy_string = enemy.toString().toLowerCase();
 
                 double dmg = e.getDamage();
-                p.sendMessage(Main.prefix+"Active Modifier: "+config.get(enemy_string+".Modifier") +config.get(enemy_string+".Damage") +" Damage.");
+                p.sendMessage(Main.prefix+"Active Modifier: "+config.get(enemy_string+".Modifier") +" " +config.get(enemy_string+".Damage") +" Damage.");
                 if(config.get(enemy_string+".Modifier").equals("+")) {
 
                     double modified_dmg = dmg+config.getDouble(enemy_string+".Damage");

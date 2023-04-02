@@ -52,7 +52,7 @@ public class MobStrength implements CommandExecutor {
                 //If the modifier is "Percent"
                 }else if(modifier.equals("%")) {
 
-                    player.sendMessage(Main.prefix+"Damage from: "+ enemy + " has been decreased by: " + damage + " damage");
+                    player.sendMessage(Main.prefix+"Damage from: "+ enemy + " has been set to: " + damage*100 + "% damage");
                     config.set(enemy.toLowerCase()+".Damage", damage);
                     config.set(enemy.toLowerCase()+".Modifier", modifier);
                     Main.getPlugin().saveConfig();
@@ -64,7 +64,7 @@ public class MobStrength implements CommandExecutor {
                 //If the modifier is "set"
                 }else if(modifier.equals("set")) {
 
-                    player.sendMessage(Main.prefix+"Damage from: "+ enemy + " has been decreased by: " + damage + " damage");
+                    player.sendMessage(Main.prefix+"Damage from: "+ enemy + " has been set to: " + damage + " damage");
                     config.set(enemy.toLowerCase()+".Damage", damage);
                     config.set(enemy.toLowerCase()+".Modifier", modifier);
                     Main.getPlugin().saveConfig();
