@@ -12,12 +12,17 @@ import org.soeinflooo.mobstrength.main.Main;
 public class MobStrength implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        FileConfiguration config = Main.getPlugin().getConfig();
         if (sender instanceof Player player) {
             if(args.length == 0) {
                 player.sendMessage(Main.prefix + "Please use: /ms <enemy> <modifier> <number>");
             }else if (args.length == 1) {
-                if(args[0].equals("reset")){
-
+                if(args[0].equals("Reset")){
+                    for (String key : config.getConfigurationSection("").getKeys(false)) {
+                        //player.sendMessage(Main.prefix+"Active Mob:"+key);
+                        //player.sendMessage(Main.prefix+config.get(key + ".Damage"));
+                        //player.sendMessage(Main.prefix+config.get(key + ".Modifier"));
+                    }
                 }
 
             } else if (args.length == 2) {
@@ -28,7 +33,6 @@ public class MobStrength implements CommandExecutor {
                 String modifier = args[1];
                 Double damage = Double.valueOf(args[2]);
                 if (player.isOp()) {
-                    FileConfiguration config = Main.getPlugin().getConfig();
 
                     //If the modifier is "Plus"
                     if (modifier.equals("+")) {

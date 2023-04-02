@@ -24,8 +24,6 @@ public class onPlayerJoin implements Listener {
         if(config.get("Setup") == "true"){
 
         }else{
-            config.addDefault("Setup","false");
-            
             config.addDefault("bee", "");
             config.addDefault("bee" + ".Modifier", "+");
             config.addDefault("bee" +".Damage", 0);

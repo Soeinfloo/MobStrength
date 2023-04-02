@@ -15,7 +15,6 @@ public class MobStrengthCompleter implements TabCompleter {
 
         if(args.length == 1) {
             List<String> mobs = new ArrayList<>();
-            mobs.add("Overall");
             mobs.add("Bee");
             mobs.add("Blaze");
             mobs.add("Cave_Spider");
@@ -43,6 +42,7 @@ public class MobStrengthCompleter implements TabCompleter {
             mobs.add("Pillager");
             mobs.add("Polar_Bear");
             mobs.add("Ravager");
+            mobs.add("Reset");
             mobs.add("Shulker");
             mobs.add("Silverfish");
             mobs.add("Skeleton");
