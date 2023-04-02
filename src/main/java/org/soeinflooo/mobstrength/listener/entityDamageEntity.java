@@ -42,6 +42,20 @@ public class entityDamageEntity implements Listener {
                     p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
                     p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
                     e.setDamage(modified_dmg);
+                } else if (config.get(enemy_string+".Modifier").equals("%")) {
+
+                    double modified_dmg = dmg*config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
+                    e.setDamage(modified_dmg);
+                } else if (config.get(enemy_string+".Modifier").equals("set")) {
+
+                    double modified_dmg = config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
+                    e.setDamage(modified_dmg);
                 }
 
 
