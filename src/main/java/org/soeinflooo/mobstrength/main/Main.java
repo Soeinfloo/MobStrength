@@ -12,6 +12,7 @@ import org.soeinflooo.mobstrength.listener.getPlayerLocale;
 import org.soeinflooo.mobstrength.listener.onPlayerJoin;
 
 import java.io.File;
+import java.io.IOException;
 //import org.soeinflooo.mobstrength.utils.Config;
 
 public final class Main extends JavaPlugin {
@@ -24,8 +25,6 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onLoad() {
-        //plugin = this;
-        //config = new Config();
         Bukkit.getLogger().info("MobStrength Up Players Down!");
     }
 
@@ -62,12 +61,15 @@ public final class Main extends JavaPlugin {
 
     }
     private void config() {
-
         f = new File("plugins/MobStrength", "prefix.yml");
         cfg = YamlConfiguration.loadConfiguration(f);
-        cfg.addDefault("Prefix", "§8§l−﴾§MobStrength§8§l﴿− §7");
+        cfg.addDefault("Prefix", "§8§l﴾§6MobStrength§8§l﴿ §7");
         cfg.options().copyDefaults(true);
-        saveDefaultConfig();
+        try {
+            cfg.save(f);
+        } catch (IOException ex) {
+        };
+
         prefix = cfg.getString("Prefix").replaceAll("&", "§");
     }
     public static Main getPlugin() {return plugin;}

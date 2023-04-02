@@ -62,13 +62,21 @@ public class MobStrengthCompleter implements TabCompleter {
             mobs.add("Zombie");
             mobs.add("Zombie_Villager");
             mobs.add("Zombified_Piglin");
-            return mobs;
 
+            List<String> result = new ArrayList<String>();
+            for (String s : mobs) {
+                if(s.toLowerCase().startsWith(args[0].toLowerCase())){
+                    result.add(s);
+                }
+            }
+            return result;
         }
         if(args.length == 2) {
             List<String> modifier = new ArrayList<>();
             modifier.add("+");
             modifier.add("-");
+            modifier.add("%");
+            modifier.add("set");
             return modifier;
         }
         if(args.length == 3) {
