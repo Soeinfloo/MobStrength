@@ -56,8 +56,8 @@ public final class Main extends JavaPlugin {
     }
 
     private void addCommands() {
-        getCommand("ms").setExecutor(new MobStrength());
-        getCommand("ms").setTabCompleter(new MobStrengthCompleter());
+        getCommand("mobstrength").setExecutor(new MobStrength());
+        getCommand("mobstrength").setTabCompleter(new MobStrengthCompleter());
 
     }
     private void config() {

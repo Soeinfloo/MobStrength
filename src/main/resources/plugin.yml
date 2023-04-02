@@ -7,7 +7,7 @@ author: Soeinflooo
 prefix: MobStrength
 
 commands:
-  ms:
+  mobstrength:
     description: Gut diese
-    aliases: mobstrength
+    aliases: ms
     permission-message: Sorry this is an Server Administrator thing.
