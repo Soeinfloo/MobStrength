@@ -46,10 +46,6 @@ public class MobStrength implements CommandExecutor {
                     config.set(enemy.toLowerCase() + ".Modifier", modifier);
                     Main.getPlugin().saveConfig();
 
-                    player.sendMessage(String.valueOf(config.get(enemy.toLowerCase())));
-                    player.sendMessage(String.valueOf(config.get(enemy.toLowerCase() + ".Modifier")));
-                    player.sendMessage(String.valueOf(config.get(enemy.toLowerCase() + ".Damage")));
-
                     //If the modifier is "Minus"
                 } else if (modifier.equals("-")) {
 
@@ -57,10 +53,6 @@ public class MobStrength implements CommandExecutor {
                     config.set(enemy.toLowerCase() + ".Damage", damage);
                     config.set(enemy.toLowerCase() + ".Modifier", modifier);
                     Main.getPlugin().saveConfig();
-
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase())));
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase() + ".Modifier")));
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase() + ".Damage")));
 
                     //If the modifier is "Percent"
                 } else if (modifier.equals("%")) {
@@ -70,10 +62,6 @@ public class MobStrength implements CommandExecutor {
                     config.set(enemy.toLowerCase() + ".Modifier", modifier);
                     Main.getPlugin().saveConfig();
 
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase())));
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase() + ".Modifier")));
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase() + ".Damage")));
-
                     //If the modifier is "set"
                 } else if (modifier.equals("set")) {
 
@@ -81,10 +69,7 @@ public class MobStrength implements CommandExecutor {
                     config.set(enemy.toLowerCase() + ".Damage", damage);
                     config.set(enemy.toLowerCase() + ".Modifier", modifier);
                     Main.getPlugin().saveConfig();
-
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase())));
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase() + ".Modifier")));
-                    player.sendMessage(String.valueOf(Main.prefix + config.get(enemy.toLowerCase() + ".Damage")));
+                    Main.getPlugin().saveDefaultConfig();
 
                 } else return false;
             }
