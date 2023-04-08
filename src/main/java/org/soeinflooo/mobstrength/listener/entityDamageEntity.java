@@ -27,65 +27,110 @@ public class entityDamageEntity implements Listener {
                 EntityType enemy = entity.getType();
                 String enemy_string = enemy.toString().toLowerCase();
 
-                if(!(config.get(enemy_string+".Damage").equals(0))){
-                    double dmg = e.getDamage();
-                    p.sendMessage(Main.prefix+"Active Modifier: "+config.get(enemy_string+".Modifier") +" " +config.get(enemy_string+".Damage") +" Damage.");
+                double dmg = e.getDamage();
+                p.sendMessage(Main.prefix+"Active Modifier: "+config.get(enemy_string+".Modifier") +" " +config.get(enemy_string+".Damage") +" Damage.");
 
-                    if(config.get(enemy_string+".Modifier").equals("+")) {
+                if(config.get(enemy_string+".Modifier").equals("+")) {
 
-                        double modified_dmg = dmg+config.getDouble(enemy_string+".Damage");
-                        p.sendMessage(Main.prefix+"Damage Source: "+enemy_string);
-                        p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
-                        p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
-                        e.setDamage(modified_dmg);
-                    } else if (config.get(enemy_string+".Modifier").equals("-")) {
+                    double modified_dmg = dmg+config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damage Source: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
 
-                        double modified_dmg = dmg-config.getDouble(enemy_string+".Damage");
-                        p.sendMessage(Main.prefix+"Damager: "+enemy_string);
-                        p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
-                        p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
-                        e.setDamage(modified_dmg);
-                    } else if (config.get(enemy_string+".Modifier").equals("%")) {
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
 
-                        double modified_dmg = dmg*config.getDouble(enemy_string+".Damage");
-                        p.sendMessage(Main.prefix+"Damager: "+enemy_string);
-                        p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
-                        p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
-                        e.setDamage(modified_dmg);
-                    } else if (config.get(enemy_string+".Modifier").equals("set")) {
+                } else if (config.get(enemy_string+".Modifier").equals("-")) {
 
-                        double modified_dmg = config.getDouble(enemy_string+".Damage");
-                        p.sendMessage(Main.prefix+"Damager: "+enemy_string);
-                        p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
-                        p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
-                        e.setDamage(modified_dmg);
-                    }
+                    double modified_dmg = dmg-config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
 
-                }else e.setCancelled(true);
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
+
+                } else if (config.get(enemy_string+".Modifier").equals("%")) {
+
+                    double modified_dmg = dmg*config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
+
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
+
+                } else if (config.get(enemy_string+".Modifier").equals("set")) {
+
+                    double modified_dmg = config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
+
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
+
+                }
+
 
 
             }else{
 
                 EntityType enemy = e.getDamager().getType();
                 String enemy_string = enemy.toString().toLowerCase();
+                double dmg = e.getDamage();
+                p.sendMessage(Main.prefix+"Active Modifier: "+config.get(enemy_string+".Modifier") +" " +config.get(enemy_string+".Damage") +" Damage.");
 
-                if(!(config.get(enemy_string+".Damage").equals(0))){
-                    double dmg = e.getDamage();
-                    double modified_dmg = dmg*config.getDouble(enemy_string+".Modifier");
+                if(config.get(enemy_string+".Modifier").equals("+")) {
 
-                    if(config.get(enemy+".Modifier").equals("+")) {
-                        p.sendMessage("+ Hit");
+                    double modified_dmg = dmg+config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damage Source: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
 
-                    } else if (config.get(enemy+".Modifier").equals("-")) {
-                        p.sendMessage("- Hit");
-                    }
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
 
+                } else if (config.get(enemy_string+".Modifier").equals("-")) {
+
+                    double modified_dmg = dmg-config.getDouble(enemy_string+".Damage");
                     p.sendMessage(Main.prefix+"Damager: "+enemy_string);
                     p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
                     p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
 
-                }else e.setCancelled(true);
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
+
+                } else if (config.get(enemy_string+".Modifier").equals("%")) {
+
+                    double modified_dmg = dmg*config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
+
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
+
+                } else if (config.get(enemy_string+".Modifier").equals("set")) {
+
+                    double modified_dmg = config.getDouble(enemy_string+".Damage");
+                    p.sendMessage(Main.prefix+"Damager: "+enemy_string);
+                    p.sendMessage(Main.prefix+"For: " +dmg +" damage.");
+                    p.sendMessage(Main.prefix+"Modified DMG:"+ modified_dmg);
+
+                    if(modified_dmg <= 0.0) {
+                        e.setCancelled(true);
+                    }else e.setDamage(modified_dmg);
+                }
             }
         }else return;
     }
 }
+

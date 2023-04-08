@@ -1,4 +1,4 @@
-package org.soeinflooo.mobstrength.listener;
+/*package org.soeinflooo.mobstrength.listener;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -26,4 +26,4 @@ public class getPlayerLocale implements Listener {
         }
 
     }
-}
+}*/

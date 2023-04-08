@@ -23,7 +23,7 @@ public class MobStrength implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("reset")) {
                     for (String key : config.getConfigurationSection("").getKeys(false)) {
 
-                        config.set(key + ".Damage", 0);
+                        config.set(key + ".Damage", 0.0);
                         config.set(key + ".Modifier", "+");
                     }
                     player.sendMessage(Main.prefix + "Damage and Modifier of all Mobs has been reset!");
