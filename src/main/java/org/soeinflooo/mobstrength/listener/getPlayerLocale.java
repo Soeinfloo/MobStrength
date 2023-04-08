@@ -21,9 +21,7 @@ public class getPlayerLocale implements Listener {
         playerData.set("Locale", player.locale().toLanguageTag());
         try {
             playerData.save(pFile);
-            player.sendMessage("Locale Saved!");
         } catch (IOException ex) {
-            player.sendMessage("Fehler beim Speichern der Sprache!");
 
         }
 

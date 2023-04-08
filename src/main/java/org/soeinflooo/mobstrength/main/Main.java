@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.soeinflooo.mobstrength.commands.MobStrength;
 import org.soeinflooo.mobstrength.commands.MobStrengthCompleter;
 import org.soeinflooo.mobstrength.listener.entityDamageEntity;
+import org.soeinflooo.mobstrength.listener.entityKnockbackEntity;
 import org.soeinflooo.mobstrength.listener.getPlayerLocale;
 import org.soeinflooo.mobstrength.listener.onPlayerJoin;
 
@@ -51,6 +52,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new onPlayerJoin(), Main.getPlugin());
         pluginManager.registerEvents(new getPlayerLocale(), Main.getPlugin());
         pluginManager.registerEvents(new entityDamageEntity(), Main.getPlugin());
+        pluginManager.registerEvents(new entityKnockbackEntity(), Main.getPlugin());
 
 
     }

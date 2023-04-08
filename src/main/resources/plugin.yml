@@ -10,4 +10,4 @@ commands:
   mobstrength:
     description: Gut diese
     aliases: ms
-    permission-message: Sorry this is an Server Administrator thing.
+    permission-message: Sorry this is a Server Administrator thing.

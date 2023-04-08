@@ -18,7 +18,6 @@ public class onPlayerJoin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
         Player player = e.getPlayer();
-        player.sendMessage(Main.prefix+"Hallo Neuer! Schön das du gekommen bist!");
         FileConfiguration config = Main.getPlugin().getConfig();
 
         if(config.get("Setup") == "true"){
