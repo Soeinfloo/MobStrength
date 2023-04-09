@@ -1,8 +1,10 @@
 package org.soeinflooo.mobstrength.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -94,7 +96,26 @@ public class MobStrengthCompleter implements TabCompleter {
             return damage;
 
         }
+        if(args.length == 4) {
+            List<String> config = new ArrayList<>();
+            config.add("Server");
 
+            List<String> config_result = new ArrayList<String>();
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                config.add(p.getName());
+            }
+            for (String s : config) {
+                if (s.toLowerCase().startsWith(args[3].toLowerCase())) {
+                    config_result.add(s);
+                }
+            }
+            return config_result;
+        }
+        if(args.length > 4) {
+            List<String> empty = new ArrayList<>();
+            empty.add("");
+            return empty;
+        }
         return null;
     }
 }
