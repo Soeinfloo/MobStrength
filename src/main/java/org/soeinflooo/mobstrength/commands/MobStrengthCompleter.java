@@ -74,12 +74,28 @@ public class MobStrengthCompleter implements TabCompleter {
             return result;
         }
         if(args.length == 2) {
-            List<String> modifier = new ArrayList<>();
-            modifier.add("+");
-            modifier.add("-");
-            modifier.add("%");
-            modifier.add("set");
-            return modifier;
+            if(!(args[0].equals("reset".toLowerCase()))) {
+                List<String> modifier = new ArrayList<>();
+                modifier.add("+");
+                modifier.add("-");
+                modifier.add("%");
+                modifier.add("set");
+                return modifier;
+            } else{
+                List<String> modifier = new ArrayList<>();
+                modifier.add("Server");
+
+                List<String> config_result = new ArrayList<String>();
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    modifier.add(p.getName());
+                }
+                for (String s : modifier) {
+                    if (s.toLowerCase().startsWith(args[1].toLowerCase())) {
+                        config_result.add(s);
+                    }
+                }
+                return config_result;
+            }
         }
         if(args.length == 3) {
             List<String> damage = new ArrayList<>();
